@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 import SwiftyJSON
 
 internal func exerciseOne() {
@@ -27,6 +28,15 @@ internal func exerciseOne() {
     // Alright, now we have a JSON object from SwiftyJSON containing the user data!
     // Let's save the user's first name to a constant!
     let firstName = userData["results"][0]["name"]["first"].stringValue
+    let lastName = userData["results"][0]["name"]["last"].stringValue
+    let streetName = userData["results"][0]["location"]["street"].stringValue
+    let cityName = userData["results"][0]["location"]["city"].stringValue
+    let state = userData["results"][0]["location"]["state"].stringValue
+    let postcode = userData["results"][0]["location"]["postcode"].intValue
+    let title = userData["results"][0]["name"]["title"].stringValue
+    let email = userData["results"][0]["email"].stringValue
+    let number = userData["results"][0]["phone"].stringValue
+    
     // Do you see what we did there? We navigated down the JSON heirarchy, asked for "results",
     // then the first dictionary value of that array, then the dictionary stored in "name",
     // then the value stored in "first". We  then told it that we wanted the value as a string.
@@ -40,7 +50,7 @@ internal func exerciseOne() {
      call at <cell phone number>."
      
      */
-    
+    print("\(firstName) \(lastName) lives at \(streetName) in \(cityName)")
     
     
     
